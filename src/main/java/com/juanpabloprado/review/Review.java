@@ -2,6 +2,7 @@ package com.juanpabloprado.review;
 
 import com.juanpabloprado.core.BaseEntity;
 import com.juanpabloprado.course.Course;
+import com.juanpabloprado.user.User;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -11,6 +12,8 @@ public class Review extends BaseEntity {
   private String description;
   @ManyToOne
   private Course course;
+  @ManyToOne
+  private User reviewer;
 
   protected Review() {
     super();
@@ -43,5 +46,13 @@ public class Review extends BaseEntity {
 
   public void setCourse(Course course) {
     this.course = course;
+  }
+
+  public User getReviewer() {
+    return reviewer;
+  }
+
+  public void setReviewer(User reviewer) {
+    this.reviewer = reviewer;
   }
 }
